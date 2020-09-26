@@ -4,8 +4,12 @@
 <title>index</title>
 {% endblock %}
 
-
 {% block body %}
+{% include 'partials/navbar.html' %}
+
+
+
+
 <div class="flex justify-center bg-gray-800 text-white h-screen">
 <div class="w-1/2 p-10">
     <h1 class="m-3 text-center text-4xl">Task manager</h1>
@@ -22,7 +26,7 @@
            <td class="p-2">{{ task.content }}</td>
            <td class="p-2">{{ task.date_created.date() }}</td>
            <td class="p-2">
-                <a href="/delete/{{task.id}}">Delete</a> |
+                <a onclick="return confirm('Are you sure you wanna delete this task ?')" class="text-red-300" href="/delete/{{task.id}}">Delete</a> |
                 <a href="/update/{{task.id}}">Update</a>  
             </td>
         </tr>
@@ -33,7 +37,7 @@
     <div class="mt-10">
     <h2 class="m-3 text-2xl uppercase text-orange-300">Add a new task</h2>
         <form action="/" method="post">
-            <input autofocus autocomplete="off" type="text" class="py-3 px-2 w-full mb-5  outline-none focus:shadow-outline focus:bg-teal-100 text-black" name="content" id="content"><br>
+            <input required autofocus autocomplete="off" type="text" class="py-3 px-2 w-full mb-5  outline-none focus:shadow-outline focus:bg-teal-100 text-black" name="content" id="content"><br>
             <button class="bg-red-800 py-2 px-12" type="submit">Add task</button>
         </form>
     </div>

@@ -13,7 +13,9 @@
     <h2 class="m-3 text-2xl uppercase text-orange-300">Edit a task</h2>
         <form action="/update/{{ task.id }}" method="post">
             <input autofocus value="{{ task.content }}" autocomplete="off" type="text" class="py-3 px-2 w-full mb-5  outline-none focus:shadow-outline focus:bg-teal-100 text-black" name="content" id="content"><br>
+            
             <button class="bg-green-500 py-2 px-12" type="submit">Update</button>
+            <a onclick="return confirm('Are you sure you wanna delete this task ?')" class="bg-red-500 py-2 px-5" href="/delete/{{ task.id }}">Delete Task</a>
             <a class="bg-gray-300 py-2 px-12 text-black" href="/">Cancel</a>
         </form>
     </div>
